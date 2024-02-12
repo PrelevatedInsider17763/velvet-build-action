@@ -1,6 +1,16 @@
 name: 'Velvet Build Action'
-description: 'Build Vib Image'
+description: 'Build Velvet root file system'
 author: 'Prelevated Insider Inc.'
 branding:
   icon: 'arrow-up'
   color: 'pink'
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Dependencies
+      shell: bash
+      run: make dep
+      
+    - name: Build file system
+      shell: bash
+      run: make build
